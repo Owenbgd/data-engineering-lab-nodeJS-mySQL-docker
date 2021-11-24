@@ -1,0 +1,21 @@
+services: 
+  db: 
+    build:
+      context: .
+      dockerfile: Dockerfile.dockerfile
+    environment: 
+      MYSQL_DATABASE: basededonnees
+      MYSQL_ROOT_PASSWORD: motdepasse
+    image: "mysql:5.7"
+  nodejs: 
+    build:
+      context: .
+      dockerfile: Dockerfile.dockerfile
+    environment: 
+      MYSQL_DATABASE: basededonnees
+      MYSQL_HOST: Owen
+      MYSQL_PASSWORD: motdepasse
+      MYSQL_USER: root
+    ports: 
+      - "5000:5000"
+version: "3"
